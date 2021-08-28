@@ -1,0 +1,51 @@
+.container{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-self: center;
+    padding: 8px;
+    font-size: 80%;
+    margin: 10px auto;
+}
+
+.filter{
+    text-transform: uppercase;
+    margin: 5px;
+    background-color: #bdbdbd;
+    padding: 10px;
+    border-radius: 5px;
+    color: #000;
+    min-width: 80px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.filterChecked{
+    opacity: 1;
+    font-weight: 800;
+    color: #ffff;
+    background-color: #424242;
+}
+
+
+.filter:hover{
+  opacity: 1;
+  font-weight: 800;
+  color: #ffff;
+  background-color: #424242;
+}
+
+
+
+
+@media (min-width: 600px) {
+    .container{
+        margin-top: 2rem !important;
+        justify-content: center;
+        font-size: 90%;
+    }
+  }
+  
