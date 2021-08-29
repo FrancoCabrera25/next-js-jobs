@@ -1,7 +1,9 @@
 import Layout from "../components/Layout";
 import SubHeader from "../components/SubHeader";
 import CategoryFilter from "../components/CategoryFilter";
-import ListJobs from "../components/ListJobs";
+import Job from "../components/Job";
+import styles from "../styles/Home.module.css"
+
 
 export default function Home() {
   return (
@@ -9,7 +11,14 @@ export default function Home() {
       <Layout>
         <SubHeader />
         <CategoryFilter />
-        <ListJobs />
+        <section className={styles.container}>
+        <Job />
+        <Job />
+        <Job />
+        <Job />
+        <Job />
+        <Job />
+        </section>       
       </Layout>
     </div>
   );
