@@ -10,6 +10,7 @@
   position: fixed;
   z-index: 99999;
   width: 100%;
+  top: 0;
 }
 
 .button {
@@ -32,6 +33,7 @@
   font-size: 130%;
   font-weight: 900;
   line-height: normal;
+  cursor: pointer;
 }
 /* smartphones, Android phones, landscape iPhone */
 @media (min-width: 600px) {
