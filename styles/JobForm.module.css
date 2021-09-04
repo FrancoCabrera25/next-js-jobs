@@ -1,15 +1,32 @@
 .container {
-        margin-top: 1em;
+  margin-top: 1em;
 }
 
-.formContainer{
-    display: flex;
-    justify-content: center;
-    margin: 3em;
-    padding: 5rem;
+.formContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 8em auto;
+  width: 100%;
 }
-.form{
-    margin-top: 2rem;
+
+.title{
+  text-align: center;
+  font-size: 250%;
+  margin: 1em;
+  padding: 1em;
+  letter-spacing: 1px;
+  color: #000;
+}
+.select{
+  background: none;
+  text-transform: capitalize;
+}
+
+.selectOption{
+ margin: 1rem;
+ padding: 1rem;
 }
 /* form starting stylings ------------------------------- */
 .group {
@@ -21,9 +38,10 @@
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   display: block;
-  width: 300px;
   border: none;
   border-bottom: 1px solid #757575;
+  min-width: 100%
+
 }
 .input:focus {
   outline: none;
@@ -55,7 +73,7 @@
 .bar {
   position: relative;
   display: block;
-  width: 300px;
+  min-width: 100%
 }
 .bar:before,
 .bar:after {
@@ -128,4 +146,15 @@
     width: 0;
     background: transparent;
   }
+}
+
+@media (min-width: 800px) {
+  
+  .formContainer {
+    margin: 10em auto;
+    width: 1080px;
+  }
+  .input {
+    width: 650px;
+  } 
 }
