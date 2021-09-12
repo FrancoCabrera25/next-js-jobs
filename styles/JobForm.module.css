@@ -2,6 +2,10 @@
   margin-top: 1em;
 }
 
+.textarea{
+  min-height: 350px;
+}
+
 .formContainer {
   display: flex;
   justify-content: center;
@@ -31,7 +35,7 @@
 /* form starting stylings ------------------------------- */
 .group {
   position: relative;
-  margin-bottom: 45px;
+  margin-bottom: 50px;
 }
 
 .input {
@@ -146,6 +150,31 @@
     width: 0;
     background: transparent;
   }
+}
+
+
+.containerButton{
+  display: flex;
+  justify-content:center;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  margin: 20px auto;
+}
+
+.button {
+  background: #44aa97;
+  padding: 12px;
+  border: none;
+  border-radius: 15px;
+  width: 200px;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 120%;
+}
+.button:hover {
+  opacity: 0.9;
 }
 
 @media (min-width: 800px) {

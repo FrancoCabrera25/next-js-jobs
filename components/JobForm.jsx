@@ -1,27 +1,81 @@
+
+import { useState } from "react";
+
 import styles from "../styles/JobForm.module.css";
 import listCategory from "../utils/listCategory.js";
+
 export default function JobForm() {
+
+  const [form, setForm] = useState({
+    companyName: '',
+    title: '',
+    category: '',
+    description: '',
+    type: '',
+    location: '',
+    url:''
+  });
+
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('form',form);
+/*     if (forNewMovie) {
+      postData(form);
+    } else {
+      // editar data
+      putData(form);
+    } */
+  };
+
+
   return (
     <section className={styles.container}>
       <div className={styles.formContainer}>
         <h1 className={styles.title}>Publicar Empleo</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className={styles.group}>
-            <input className={styles.input} type="text" required />
+            <input 
+            className={styles.input} 
+            type="text" 
+            required
+            name="companyName"
+            value={form.companyName}
+            onChange={handleChange}
+            />
             <span className={styles.highlight}></span>
             <span className={styles.bar}></span>
             <label className={styles.label}>Nombre de la Empresa</label>
           </div>
 
           <div className={styles.group}>
-            <input className={styles.input} type="text" required />
+            <input 
+            className={styles.input} 
+            type="text" 
+            required
+            name="title"
+            value={form.title}
+            onChange={handleChange} 
+            />
             <span className={styles.highlight}></span>
             <span className={styles.bar}></span>
             <label className={styles.label}>Título del puesto de trabajo</label>
           </div>
 
           <div className={styles.group}>
-            <select className={`${styles.input}  ${styles.select}`}>
+            <select 
+             className={`${styles.input}  ${styles.select}`}
+             name="category"
+             value={form.category}
+             onChange={handleChange} 
+             >
               <option value="">Seleccionar</option>
               {listCategory.map((item) => (
                 <option className={styles.selectOption} key={item.key} value={item.key}>
@@ -35,34 +89,67 @@ export default function JobForm() {
           </div>
 
           <div className={styles.group}>
-            <input className={styles.input} type="text" required />
+            <textarea 
+            className={`${styles.input}  ${styles.textarea}`} 
+            type="text" 
+            required 
+            name="description"
+            value={form.description}
+            onChange={handleChange} 
+            />
             <span className={styles.highlight}></span>
             <span className={styles.bar}></span>
-            <label className={styles.label}>Name</label>
+            <label className={styles.label}>Descripción del puesto de trabajo</label>
+          </div>
+
+        <div className={styles.group}>
+            <select 
+            className={`${styles.input}  
+            ${styles.select}`}
+            name="type"
+            value={form.type}
+            onChange={handleChange} 
+            >
+              <option value="">Seleccionar</option>
+              <option value="full-Time">Full Time</option>
+              <option value="part-time">Part Time</option>
+              <option value="Freelance">Freelance</option>
+            </select>
+            <span className={styles.highlight}></span>
+            <span className={styles.bar}></span>
+            <label className={styles.label}>Tipo de trabajo </label>
+          </div>
+
+
+          <div className={styles.group}>
+            <input 
+             className={styles.input} 
+             type="text" 
+             required 
+             name="location"
+             value={form.location}
+             onChange={handleChange} 
+             />
+            <span className={styles.highlight}></span>
+            <span className={styles.bar}></span>
+            <label className={styles.label}>Ubicación</label>
           </div>
           <div className={styles.group}>
-            <input className={styles.input} type="text" required />
+            <input 
+            className={styles.input} 
+            type="text" 
+            required 
+            name="url"
+            value={form.url}
+            onChange={handleChange}
+            />
             <span className={styles.highlight}></span>
             <span className={styles.bar}></span>
-            <label className={styles.label}>Name</label>
+            <label className={styles.label}>Donde aplicar</label>
           </div>
-          <div className={styles.group}>
-            <input className={styles.input} type="text" required />
-            <span className={styles.highlight}></span>
-            <span className={styles.bar}></span>
-            <label className={styles.label}>Name</label>
-          </div>
-          <div className={styles.group}>
-            <input className={styles.input} type="text" required />
-            <span className={styles.highlight}></span>
-            <span className={styles.bar}></span>
-            <label className={styles.label}>Name</label>
-          </div>
-          <div className={styles.group}>
-            <input className={styles.input} type="text" required />
-            <span className={styles.highlight}></span>
-            <span className={styles.bar}></span>
-            <label className={styles.label}>Name</label>
+          <div className={styles.containerButton}>
+       {/*      <button>Volver</button> */}
+            <button className={styles.button} type="submit">Publicar</button>
           </div>
         </form>
       </div>
