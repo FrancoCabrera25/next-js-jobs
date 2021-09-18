@@ -1,11 +1,12 @@
 
 import { useState } from "react";
-
+import { useRouter } from 'next/router'
 import styles from "../styles/JobForm.module.css";
 import listCategory from "../utils/listCategory.js";
 
 export default function JobForm() {
-
+  const router = useRouter() 
+  const contentType = 'application/json'
   const [form, setForm] = useState({
     companyName: '',
     title: '',
@@ -26,6 +27,7 @@ export default function JobForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    postData(form);
     console.log('form',form);
 /*     if (forNewMovie) {
       postData(form);
@@ -35,6 +37,31 @@ export default function JobForm() {
     } */
   };
 
+  /* The POST method adds a new entry in the mongodb database. */
+  const postData = async (formJob) => {
+    try {
+      console.log('formJob', formJob);
+      const res = await fetch('/api/jobs', {
+        method: 'POST',
+        headers: {
+          Accept: contentType,
+          'Content-Type': contentType,
+        },
+        body: JSON.stringify(formJob),
+      })
+
+      // Throw error with status code in case Fetch API req failed
+      if (!res.ok) {
+        console.log(res.status);
+      /*   throw new Error(res.status) */
+      }
+
+      router.push('/')
+    } catch (error) {
+      console.log(error);
+      /* setMessage('Failed to add pet') */
+    }
+  }
 
   return (
     <section className={styles.container}>
