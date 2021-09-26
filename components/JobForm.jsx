@@ -37,6 +37,9 @@ export default function JobForm() {
     } */
   };
 
+
+  
+
   /* The POST method adds a new entry in the mongodb database. */
   const postData = async (formJob) => {
     try {
