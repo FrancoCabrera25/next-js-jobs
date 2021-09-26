@@ -10,8 +10,16 @@ export default async function handler(req, res) {
     switch (method) {
       case 'GET':
         try {
-          const jobs = await Job.find({}) /* find all the data in our database */
-          res.status(200).json({ success: true, data: jobs })
+          const queryObj = req.query;
+          console.log(queryObj);
+          if(queryObj === null || queryObj.category === "All"){
+            const jobs = await Job.find({}).sort({createdAt: -1}).exec() /* find all the data in our database */
+            res.status(200).json({ success: true, data: jobs })  
+          }else{
+            const jobs = await Job.find({category: queryObj.category}).sort({createdAt: -1}).exec() /* find all the data in our database */
+            res.status(200).json({ success: true, data: jobs }) 
+          }
+          
         } catch (error) {
           res.status(400).json({ success: false })
         }

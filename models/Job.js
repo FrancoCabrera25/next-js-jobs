@@ -45,6 +45,8 @@ const JobSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a name for this pet."],
   },
+}, {
+  timestamps: true
 });
 
 export default mongoose.models.Job || mongoose.model("Job", JobSchema);
