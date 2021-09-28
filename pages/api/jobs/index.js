@@ -12,7 +12,7 @@ export default async function handler(req, res) {
         try {
           const queryObj = req.query;
           console.log(queryObj);
-          if(queryObj === null || queryObj.category === "All"){
+          if(queryObj.category === "All"){
             const jobs = await Job.find({}).sort({createdAt: -1}).exec() /* find all the data in our database */
             res.status(200).json({ success: true, data: jobs })  
           }else{
